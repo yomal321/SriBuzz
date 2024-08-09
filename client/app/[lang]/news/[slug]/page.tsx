@@ -50,7 +50,6 @@ export function generateMetadata({ params }: PageProps): Metadata {
       description,
       images: [`https://sribuzz.com/og-images/${params.slug}.jpg`],
     },
-    canonical: url,
   };
 }
 
