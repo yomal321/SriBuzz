@@ -8,6 +8,7 @@ import { capitalizeWords } from "@/utils/capitalize";
 interface PageProps {
   params: {
     category: string;
+    lang: string;
   };
 }
 
@@ -21,7 +22,7 @@ export function generateMetadata({ params }: PageProps): Metadata {
 }
 
 const Page = ({ params }: PageProps) => {
-  const { category } = params;
+  const { category, lang } = params;
 
   const crumbs = [
     {
@@ -36,7 +37,7 @@ const Page = ({ params }: PageProps) => {
   return (
     <div>
       <Breadcrumb crumbs={crumbs} />
-      <NewsByCategory category={category + " News"} />
+      <NewsByCategory category={category + " News"} lang={lang} />
     </div>
   );
 };

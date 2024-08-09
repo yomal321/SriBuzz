@@ -2,7 +2,7 @@ import React from "react";
 import { FaArrowRight } from "react-icons/fa";
 import NewsCard from "./News/NewsCard";
 
-function NewsCategory({ category }) {
+function NewsCategory({ category, lang }) {
   return (
     <div>
       <div className="flex my-5 justify-between">
@@ -10,6 +10,7 @@ function NewsCategory({ category }) {
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         <NewsCard
+          targetLanguage={lang}
           imageSrc="https://images.unsplash.com/photo-1604595704321-f24afaa2fa6e?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           provider="BBC News"
           title="He Deserves a lot more Verstappen Backs Alonso"
@@ -20,6 +21,7 @@ function NewsCategory({ category }) {
         />
 
         <NewsCard
+          targetLanguage={lang}
           imageSrc="https://images.unsplash.com/photo-1604595704321-f24afaa2fa6e?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           provider="BBC News"
           title="He Deserves a lot more Verstappen Backs Alonso"
@@ -30,6 +32,7 @@ function NewsCategory({ category }) {
         />
 
         <NewsCard
+          targetLanguage={lang}
           imageSrc="https://images.unsplash.com/photo-1604595704321-f24afaa2fa6e?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           provider="BBC News"
           title="He Deserves a lot more Verstappen Backs Alonso"
@@ -40,6 +43,7 @@ function NewsCategory({ category }) {
         />
 
         <NewsCard
+          targetLanguage={lang}
           imageSrc="https://images.unsplash.com/photo-1604595704321-f24afaa2fa6e?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           provider="BBC News"
           title="He Deserves a lot more Verstappen Backs Alonso"

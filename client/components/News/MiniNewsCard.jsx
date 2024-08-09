@@ -3,6 +3,7 @@ import NewsProvider from "./NewsProvider";
 import ReadTime from "./ReadTime";
 
 function MiniNewsCard({
+  targetLanguage,
   imageSrc,
   provider,
   title,

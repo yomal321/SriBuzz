@@ -54,7 +54,7 @@ function NewsCard({
   }, [originalTitle, originalContent, targetLanguage]);
 
   return (
-    <Link href="/news/test-data">
+    <Link href={`/${targetLanguage}/news/test-key`}>
       <div className="card">
         <img
           className="rounded-xl w-full aspect-square object-cover"

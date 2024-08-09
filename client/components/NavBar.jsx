@@ -191,7 +191,7 @@ function NavBar({ params }) {
                   className={`text-gray-500 transition hover:text-gray-500/75 ${
                     isActive("/local") ? activeClass : ""
                   }`}
-                  href="/local"
+                  href={`/${lang}/local`}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Local
@@ -203,7 +203,7 @@ function NavBar({ params }) {
                   className={`text-gray-500 transition hover:text-gray-500/75 ${
                     isActive("/world") ? activeClass : ""
                   }`}
-                  href="/world"
+                  href={`/${lang}/world`}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   World
@@ -215,7 +215,7 @@ function NavBar({ params }) {
                   className={`text-gray-500 transition hover:text-gray-500/75 ${
                     isActive("/political") ? activeClass : ""
                   }`}
-                  href="/political"
+                  href={`/${lang}/political`}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Political
@@ -227,7 +227,7 @@ function NavBar({ params }) {
                   className={`text-gray-500 transition hover:text-gray-500/75 ${
                     isActive("/sports") ? activeClass : ""
                   }`}
-                  href="/sports"
+                  href={`/${lang}/sports`}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Sports
@@ -239,7 +239,7 @@ function NavBar({ params }) {
                   className={`text-gray-500 transition hover:text-gray-500/75 ${
                     isActive("/entertainment") ? activeClass : ""
                   }`}
-                  href="/entertainment"
+                  href={`/${lang}/entertainment`}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Entertainment
@@ -251,7 +251,7 @@ function NavBar({ params }) {
                   className={`text-gray-500 transition hover:text-gray-500/75 ${
                     isActive("/contact") ? activeClass : ""
                   }`}
-                  href="/contact"
+                  href={`/${lang}/contact`}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Contact
