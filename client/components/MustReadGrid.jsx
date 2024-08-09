@@ -3,7 +3,7 @@ import NewsCard from "./News/NewsCard";
 import NewsInbox from "./News/NewsInbox";
 import MiniNewsCard from "./News/MiniNewsCard";
 
-function MustReadGrid() {
+function MustReadGrid({ lang }) {
   return (
     <section className="my-16">
       <div className="flex my-5 justify-between">
@@ -14,6 +14,7 @@ function MustReadGrid() {
       <div className="grid gird-cols-1 md:grid-cols-1 lg:grid-cols-4 gap-6">
         <div className="col-span-2 lg:col-span-1">
           <NewsCard
+            targetLanguage={lang}
             imageSrc="https://images.unsplash.com/photo-1604595704321-f24afaa2fa6e?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             provider="BBC News"
             title="He Deserves a lot more Verstappen Backs Alonso"
@@ -30,6 +31,7 @@ function MustReadGrid() {
         <div className="col-span-2 lg:col-span-1">
           <div className="grid gird-cols-1 gap-6">
             <MiniNewsCard
+              targetLanguage={lang}
               imageSrc="https://images.unsplash.com/photo-1604595704321-f24afaa2fa6e?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               provider="BBC News"
               title="He Deserves a lot more Verstappen Backs Alonso"
@@ -38,6 +40,7 @@ function MustReadGrid() {
               timeAgo="12 Minutes Ago"
             />
             <MiniNewsCard
+              targetLanguage={lang}
               imageSrc="https://images.unsplash.com/photo-1604595704321-f24afaa2fa6e?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               provider="BBC News"
               title="He Deserves a lot more Verstappen Backs Alonso"

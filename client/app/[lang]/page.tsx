@@ -39,12 +39,12 @@ export default function Home({ params }: PageProps) {
         timeAgo="12 Minutes Ago"
       />
       <LatestNews targetLanguage={lang} />
-      <MustReadGrid />
-      <EditorsPick />
+      <MustReadGrid lang={lang} />
+      <EditorsPick lang={lang} />
       <section className="my-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 my-16 gap-6">
-          <NewsCategory category="Sport News" />
-          <NewsCategory category="Business News" />
+          <NewsCategory category="Sport News" lang={lang} />
+          <NewsCategory category="Business News" lang={lang} />
         </div>
       </section>
       <TopCreators />

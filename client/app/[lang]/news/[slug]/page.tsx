@@ -7,6 +7,8 @@ import { capitalizeWords } from "@/utils/capitalize";
 import NewsProvider from "@/components/News/NewsProvider";
 import ReadTime from "@/components/News/ReadTime";
 import MiniNewsCard from "@/components/News/MiniNewsCard";
+import { fetchTranslation } from "@/utils/translation";
+import NewsDetail from "@/components/News/NewsDetail";
 
 interface PageProps {
   params: {
@@ -35,7 +37,7 @@ export function generateMetadata({ params }: PageProps): Metadata {
       siteName: "Sri Buzz",
       images: [
         {
-          url: `https://images.unsplash.com/photo-1585282263861-f55e341878f8?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D`,
+          url: `https://sribuzz.com/og-images/${params.slug}.jpg`,
           width: 800,
           height: 600,
           alt: `${slug} News`,
@@ -48,9 +50,7 @@ export function generateMetadata({ params }: PageProps): Metadata {
       card: "summary_large_image",
       title,
       description,
-      images: [
-        `https://images.unsplash.com/photo-1585282263861-f55e341878f8?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D`,
-      ],
+      images: [`https://sribuzz.com/og-images/${params.slug}.jpg`],
     },
   };
 }
@@ -73,81 +73,16 @@ const Page = ({ params }: PageProps) => {
       <Breadcrumb crumbs={crumbs} />
       <div className="grid gird-cols-1 lg:grid-cols-4 my-10 gap-6">
         <div className="card col-span-3">
-          <img
-            className="rounded-xl w-full object-cover"
-            src="https://images.unsplash.com/photo-1585282263861-f55e341878f8?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            alt="cover Image"
+          <NewsDetail
+            targetLanguage={lang}
+            imageSrc="https://images.unsplash.com/photo-1604595704321-f24afaa2fa6e?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            provider="BBC News"
+            title="He Deserves a lot more Verstappen Backs Alonso"
+            content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, dolor! Quaerat rem fuga quidem quia fugit iure voluptate ipsam deleniti, vero reiciendis exercitationem dolorem consequuntur corporis dolor deserunt voluptatibus eos."
+            readTime="5 min read"
+            category="Movies"
+            timeAgo="12 Minutes Ago"
           />
-          <div className="my-3">
-            <NewsProvider provider="BBC News" timeAgo="5 Minuete Ago" />
-          </div>
-          <h2 className="text-3xl font-bold my-3">Lorem ipsum dolor</h2>
-          <p className="text-justify">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quaerat,
-            libero? Eligendi, ad dicta consectetur saepe dolores voluptas
-            ducimus, tempora atque adipisci cum iure deserunt vitae, iusto animi
-            quaerat aspernatur eos? Lorem ipsum dolor, sit amet consectetur
-            adipisicing elit. Veritatis reprehenderit sunt maxime doloribus
-            perspiciatis cupiditate voluptates dolorum laborum, non cumque
-            placeat ex eaque deserunt ad eveniet temporibus pariatur?
-            Voluptates, magnam! Lorem ipsum dolor, sit amet consectetur
-            adipisicing elit. Cumque, ad consequuntur architecto aliquid sed
-            illo odit numquam provident tenetur! Ipsam, officiis delectus. Sit
-            suscipit a aliquid itaque fugit iure asperiores! Lorem ipsum dolor
-            sit amet consectetur adipisicing elit. Dolorum quod debitis impedit.
-            Alias optio harum, earum error, eligendi voluptate vel nulla eos
-            dolores, expedita deserunt veritatis quis in sapiente velit. Lorem
-            ipsum dolor sit amet consectetur, adipisicing elit. Hic voluptatum
-            quae deleniti non facilis tempore quaerat veniam quod ex voluptates
-            perspiciatis ipsa amet illum voluptate nam consectetur praesentium,
-            necessitatibus perferendis. Lorem ipsum dolor sit amet, consectetur
-            adipisicing elit. Quia odio quidem modi praesentium vel,
-            consequuntur in laudantium laboriosam ex officiis aperiam obcaecati
-            esse neque, dolores optio doloremque. Nemo, assumenda in? Lorem
-            ipsum dolor sit amet consectetur adipisicing elit. Modi, quidem
-            architecto. Vel quibusdam quidem asperiores sequi quam, temporibus,
-            reiciendis, placeat consequatur cum veniam unde perferendis fuga ea
-            inventore adipisci minus!
-          </p>
-          <p>
-            Cumque, ad consequuntur architecto aliquid sed illo odit numquam
-            provident tenetur! Ipsam, officiis delectus. Sit suscipit a aliquid
-            itaque fugit iure asperiores! Lorem ipsum dolor sit amet consectetur
-            adipisicing elit. Dolorum quod debitis impedit. Alias optio harum,
-            earum error, eligendi voluptate vel nulla eos dolores, expedita
-            deserunt veritatis quis in sapiente velit. Lorem ipsum dolor sit
-            amet consectetur, adipisicing elit. Hic voluptatum quae deleniti non
-            facilis tempore quaerat veniam quod ex voluptates perspiciatis ipsa
-            amet illum voluptate nam consectetur praesentium, necessitatibus
-            perferendis. Lorem ipsum dolor sit amet, consectetur adipisicing
-            elit. Quia odio quidem modi praesentium vel, consequuntur in
-            laudantium laboriosam ex officiis aperiam obcaecati esse neque,
-            dolores optio doloremque. Nemo, assumenda in? Lorem ipsum dolor sit
-            amet consectetur adipisicing elit. Modi, quidem architecto. Vel
-            quibusdam quidem asperiores sequi quam, temporibus, reiciendis,
-            placeat consequatur cum veniam unde perferendis fuga ea inventore
-            adipisci minus!
-          </p>
-          <p>
-            Cumque, ad consequuntur architecto aliquid sed illo odit numquam
-            provident tenetur! Ipsam, officiis delectus. Sit suscipit a aliquid
-            itaque fugit iure asperiores! Lorem ipsum dolor sit amet consectetur
-            adipisicing elit. Dolorum quod debitis impedit. Alias optio harum,
-            earum error, eligendi voluptate vel nulla eos dolores, expedita
-            deserunt veritatis quis in sapiente velit. Lorem ipsum dolor sit
-            amet consectetur, adipisicing elit. Hic voluptatum quae deleniti non
-            facilis tempore quaerat veniam quod ex voluptates perspiciatis ipsa
-            amet illum voluptate nam consectetur praesentium, necessitatibus
-            perferendis. Lorem ipsum dolor sit amet, consectetur adipisicing
-            elit. Quia odio quidem modi praesentium vel, consequuntur in
-            laudantium laboriosam ex officiis aperiam obcaecati esse neque,
-            dolores optio doloremque. Nemo, assumenda in? Lorem ipsum dolor sit
-            amet consectetur adipisicing elit. Modi, quidem architecto. Vel
-            quibusdam quidem asperiores sequi quam, temporibus, reiciendis,
-            placeat consequatur cum veniam unde perferendis fuga ea inventore
-            adipisci minus!
-          </p>
-          <ReadTime readTime="5 Mins read" category="Business" />
         </div>
 
         <div className="col-span-3 lg:col-span-1">

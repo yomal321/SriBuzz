@@ -1,12 +1,12 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import NewsProvider from "./News/NewsProvider";
-import ReadTime from "./News/ReadTime";
+import NewsProvider from "@/components/News/NewsProvider";
+import ReadTime from "@/components/News/ReadTime";
 import { fetchTranslation } from "@/utils/translation";
 import Link from "next/link";
 
-function MainNews({
+function NewsDetail({
   targetLanguage,
   imageSrc,
   provider,
@@ -16,8 +16,8 @@ function MainNews({
   category,
   timeAgo,
 }) {
-  const [translatedTitle, setTranslatedTitle] = useState("");
-  const [translatedContent, setTranslatedContent] = useState("");
+  const [translatedTitle, setTranslatedTitle] = useState(originalTitle);
+  const [translatedContent, setTranslatedContent] = useState(originalContent);
 
   useEffect(() => {
     const translateText = async () => {
@@ -52,35 +52,22 @@ function MainNews({
 
     translateText();
   }, [originalTitle, originalContent, targetLanguage]);
-
   return (
-    <Link href={`/${targetLanguage}/news/test-key`}>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-10">
-        <div>
-          <img
-            src="https://images.unsplash.com/photo-1583912267382-49a82d19bd94?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            alt=""
-            className="rounded-2xl"
-          />
-        </div>
-        <div className="flex items-center">
-          <div>
-            <NewsProvider provider="Netflix" timeAgo="12 Minutes Ago" />
-
-            <div className="mt-3">
-              <h1 className="text-3xl lg:text-5xl font-bold leading-tight">
-                {translatedTitle}
-              </h1>
-              <p className="mt-5 text-gray-500 leading-7 text-justify">
-                {translatedContent}
-              </p>
-            </div>
-            <ReadTime readTime="5 Mins" category="Movies" />
-          </div>
-        </div>
+    <div>
+      <h2 className="text-3xl font-bold my-3">{translatedTitle}</h2>
+      <div className="my-3">
+        <NewsProvider provider="BBC News" timeAgo="5 Minuete Ago" />
       </div>
-    </Link>
+      <img
+        className="rounded-xl w-full object-cover"
+        src="https://images.unsplash.com/photo-1585282263861-f55e341878f8?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        alt="cover Image"
+      />
+
+      <p className="text-justify my-5">{translatedContent}</p>
+      <ReadTime readTime="5 Mins read" category="Business" />
+    </div>
   );
 }
 
-export default MainNews;
+export default NewsDetail;
