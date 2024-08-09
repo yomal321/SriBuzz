@@ -1,10 +1,13 @@
 "use client";
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
+import { usePathname } from "next/navigation"; // Import the usePathname hook
 
-function NavBar() {
+function NavBar({ params }) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const pathname = usePathname(); // Get the current path
+  const lang = params.lang || "en"; // Default to 'en' if lang is not provided
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,6 +20,9 @@ function NavBar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const isActive = (href) => pathname === `/${lang}${href}`; // Adjusted to include lang
+  const activeClass = "text-teal-600 font-bold border-b-2 border-teal-600 pb-1";
+
   return (
     <header className="bg-white sticky top-0 z-50 shadow-sm">
       <div
@@ -24,7 +30,10 @@ function NavBar() {
           isScrolled ? "h-16" : "h-16 lg:h-28"
         }`}
       >
-        <Link className="block font-bold text-2xl text-teal-600" href="/">
+        <Link
+          className="block font-bold text-2xl text-teal-600"
+          href={`/${lang}/`}
+        >
           SriBuzz
         </Link>
 
@@ -33,8 +42,10 @@ function NavBar() {
             <ul className="flex items-center gap-6 text-sm">
               <li>
                 <Link
-                  className="text-gray-500 transition hover:text-gray-500/75"
-                  href="local"
+                  className={`text-gray-500 transition hover:text-gray-500/75 ${
+                    isActive("/local") ? activeClass : ""
+                  }`}
+                  href={`/${lang}/local`}
                 >
                   Local
                 </Link>
@@ -42,8 +53,10 @@ function NavBar() {
 
               <li>
                 <Link
-                  className="text-gray-500 transition hover:text-gray-500/75"
-                  href="world"
+                  className={`text-gray-500 transition hover:text-gray-500/75 ${
+                    isActive("/world") ? activeClass : ""
+                  }`}
+                  href={`/${lang}/world`}
                 >
                   World
                 </Link>
@@ -51,8 +64,10 @@ function NavBar() {
 
               <li>
                 <Link
-                  className="text-gray-500 transition hover:text-gray-500/75"
-                  href="political"
+                  className={`text-gray-500 transition hover:text-gray-500/75 ${
+                    isActive("/political") ? activeClass : ""
+                  }`}
+                  href={`/${lang}/political`}
                 >
                   Political
                 </Link>
@@ -60,8 +75,10 @@ function NavBar() {
 
               <li>
                 <Link
-                  className="text-gray-500 transition hover:text-gray-500/75"
-                  href="sports"
+                  className={`text-gray-500 transition hover:text-gray-500/75 ${
+                    isActive("/sports") ? activeClass : ""
+                  }`}
+                  href={`/${lang}/sports`}
                 >
                   Sports
                 </Link>
@@ -69,8 +86,10 @@ function NavBar() {
 
               <li>
                 <Link
-                  className="text-gray-500 transition hover:text-gray-500/75"
-                  href="entertainment"
+                  className={`text-gray-500 transition hover:text-gray-500/75 ${
+                    isActive("/entertainment") ? activeClass : ""
+                  }`}
+                  href={`/${lang}/entertainment`}
                 >
                   Entertainment
                 </Link>
@@ -78,11 +97,16 @@ function NavBar() {
 
               <li>
                 <Link
-                  className="text-gray-500 transition hover:text-gray-500/75"
-                  href="contact"
+                  className={`text-gray-500 transition hover:text-gray-500/75 ${
+                    isActive("/contact") ? activeClass : ""
+                  }`}
+                  href={`/${lang}/contact`}
                 >
                   Contact
                 </Link>
+              </li>
+              <li>
+                <Link href="/si">සිංහල</Link> | <Link href="/en">English</Link>
               </li>
             </ul>
           </nav>
@@ -164,8 +188,10 @@ function NavBar() {
             <ul className="flex flex-col gap-6 text-sm">
               <li>
                 <Link
-                  className="text-gray-500 transition hover:text-gray-500/75"
-                  href="local"
+                  className={`text-gray-500 transition hover:text-gray-500/75 ${
+                    isActive("/local") ? activeClass : ""
+                  }`}
+                  href="/local"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Local
@@ -174,8 +200,10 @@ function NavBar() {
 
               <li>
                 <Link
-                  className="text-gray-500 transition hover:text-gray-500/75"
-                  href="world"
+                  className={`text-gray-500 transition hover:text-gray-500/75 ${
+                    isActive("/world") ? activeClass : ""
+                  }`}
+                  href="/world"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   World
@@ -184,8 +212,10 @@ function NavBar() {
 
               <li>
                 <Link
-                  className="text-gray-500 transition hover:text-gray-500/75"
-                  href="political"
+                  className={`text-gray-500 transition hover:text-gray-500/75 ${
+                    isActive("/political") ? activeClass : ""
+                  }`}
+                  href="/political"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Political
@@ -194,8 +224,10 @@ function NavBar() {
 
               <li>
                 <Link
-                  className="text-gray-500 transition hover:text-gray-500/75"
-                  href="sports"
+                  className={`text-gray-500 transition hover:text-gray-500/75 ${
+                    isActive("/sports") ? activeClass : ""
+                  }`}
+                  href="/sports"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Sports
@@ -204,8 +236,10 @@ function NavBar() {
 
               <li>
                 <Link
-                  className="text-gray-500 transition hover:text-gray-500/75"
-                  href="entertainment"
+                  className={`text-gray-500 transition hover:text-gray-500/75 ${
+                    isActive("/entertainment") ? activeClass : ""
+                  }`}
+                  href="/entertainment"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Entertainment
@@ -214,8 +248,10 @@ function NavBar() {
 
               <li>
                 <Link
-                  className="text-gray-500 transition hover:text-gray-500/75"
-                  href="contact"
+                  className={`text-gray-500 transition hover:text-gray-500/75 ${
+                    isActive("/contact") ? activeClass : ""
+                  }`}
+                  href="/contact"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Contact

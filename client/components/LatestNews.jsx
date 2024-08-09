@@ -1,7 +1,10 @@
-import React from "react";
-import NewsCard from "./News/NewsCard";
+"use client";
 
-function LatestNews() {
+import React, { useEffect, useState } from "react";
+import NewsCard from "./News/NewsCard";
+import { fetchTranslation } from "@/utils/translation";
+
+function LatestNews({ targetLanguage }) {
   return (
     <section className="my-16">
       <div className="flex my-5 justify-between">
@@ -11,6 +14,7 @@ function LatestNews() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         <NewsCard
+          targetLanguage={targetLanguage}
           imageSrc="https://images.unsplash.com/photo-1604595704321-f24afaa2fa6e?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           provider="BBC News"
           title="He Deserves a lot more Verstappen Backs Alonso"
@@ -21,6 +25,7 @@ function LatestNews() {
         />
 
         <NewsCard
+          targetLanguage={targetLanguage}
           imageSrc="https://images.unsplash.com/photo-1604595704321-f24afaa2fa6e?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           provider="BBC News"
           title="He Deserves a lot more Verstappen Backs Alonso"
@@ -31,6 +36,7 @@ function LatestNews() {
         />
 
         <NewsCard
+          targetLanguage={targetLanguage}
           imageSrc="https://images.unsplash.com/photo-1604595704321-f24afaa2fa6e?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           provider="BBC News"
           title="He Deserves a lot more Verstappen Backs Alonso"
@@ -41,6 +47,7 @@ function LatestNews() {
         />
 
         <NewsCard
+          targetLanguage={targetLanguage}
           imageSrc="https://images.unsplash.com/photo-1604595704321-f24afaa2fa6e?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           provider="BBC News"
           title="He Deserves a lot more Verstappen Backs Alonso"

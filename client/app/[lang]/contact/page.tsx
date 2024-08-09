@@ -8,9 +8,18 @@ export const metadata: Metadata = {
 };
 
 function page() {
+  const crumbs = [
+    {
+      label: "Home",
+      href: "#",
+      icon: "M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6",
+    },
+    { label: "Contact", href: "#" },
+  ];
+
   return (
     <div>
-      <Breadcrumb />
+      <Breadcrumb crumbs={crumbs} />
       <section className="bg-gray-100 my-10">
         <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 gap-x-16 gap-y-8 lg:grid-cols-5">
@@ -40,7 +49,7 @@ function page() {
                     Name
                   </label>
                   <input
-                    className="w-full rounded-lg border-gray-200 p-3 text-sm"
+                    className="w-full rounded-lg border border-gray-200 p-3 text-sm"
                     placeholder="Name"
                     type="text"
                     id="name"
@@ -53,7 +62,7 @@ function page() {
                       Email
                     </label>
                     <input
-                      className="w-full rounded-lg border-gray-200 p-3 text-sm"
+                      className="w-full rounded-lg border border-gray-200 p-3 text-sm"
                       placeholder="Email address"
                       type="email"
                       id="email"
@@ -65,7 +74,7 @@ function page() {
                       Phone
                     </label>
                     <input
-                      className="w-full rounded-lg border-gray-200 p-3 text-sm"
+                      className="w-full rounded-lg border border-gray-200 p-3 text-sm"
                       placeholder="Phone Number"
                       type="tel"
                       id="phone"
@@ -79,7 +88,7 @@ function page() {
                   </label>
 
                   <textarea
-                    className="w-full rounded-lg border-gray-200 p-3 text-sm"
+                    className="w-full rounded-lg border border-gray-200 p-3 text-sm"
                     placeholder="Message"
                     rows={8}
                     id="message"
