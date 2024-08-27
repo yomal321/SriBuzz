@@ -55,18 +55,20 @@ function NewsCard({
 
   return (
     <Link href={`/${targetLanguage}/news/test-key`}>
-      <div className="card">
+      <div className="card group hover:shadow-md rounded-xl">
         <img
           className="rounded-xl w-full aspect-square object-cover"
           src={imageSrc}
           alt={translatedTitle}
         />
-        <div className="my-3">
-          <NewsProvider provider={provider} timeAgo={timeAgo} />
+        <div className="group-hover:p-4 transition-all duration-500">
+          <div className="my-3">
+            <NewsProvider provider={provider} timeAgo={timeAgo} />
+          </div>
+          <h2 className="text-3xl font-bold my-3">{translatedTitle}</h2>
+          <p className="text-justify">{translatedContent}</p>
+          <ReadTime readTime={readTime} category={category} />
         </div>
-        <h2 className="text-3xl font-bold my-3">{translatedTitle}</h2>
-        <p className="text-justify">{translatedContent}</p>
-        <ReadTime readTime={readTime} category={category} />
       </div>
     </Link>
   );

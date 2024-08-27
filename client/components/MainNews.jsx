@@ -55,7 +55,7 @@ function MainNews({
 
   return (
     <Link href={`/${targetLanguage}/news/test-key`}>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-10 hover:shadow-lg hover:rounded-xl">
         <div>
           <img
             src="https://images.unsplash.com/photo-1583912267382-49a82d19bd94?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
@@ -63,7 +63,7 @@ function MainNews({
             className="rounded-2xl"
           />
         </div>
-        <div className="flex items-center">
+        <div className="flex items-center pe-4">
           <div>
             <NewsProvider provider="Netflix" timeAgo="12 Minutes Ago" />
 
