@@ -9,7 +9,7 @@ const RateAndRevController = require("../controllers/RateAndRevController");
 const CommentController = require("../controllers/CommentControllers");
 const WebContentController = require("../controllers/WebContentController");
 
-
+//test 
 // News routes
 router.post("/news", NewsController.createNews);
 router.get("/news", NewsController.getAllNews);
