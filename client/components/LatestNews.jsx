@@ -9,7 +9,7 @@ function LatestNews({ targetLanguage }) {
   const [News, setNews] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
-
+// test 
   useEffect(() => {
     const fetchNews = async () => {
       try {
